@@ -1,6 +1,10 @@
 boolean toppings = false;
+import processing.sound.*;
+SoundFile sound;
 void setup(){
- size(500,500);}
+ size(500,500);
+ sound = new SoundFile(this,"196260__nighteller__pizza.mp3");
+}
  void draw(){
 fill(245,200,100);
 ellipse(200,150,250,250);
@@ -12,7 +16,9 @@ if(mousePressed==true){
  toppings = true;
 }
 if(toppings==true){
+  sound.play();
   PImage bacon = loadImage("canadianbacon.ppm.gif");
+  toppings = false;
 image(bacon,200,150);
 bacon.resize(10,10);
 PImage olives = loadImage("olive.ppm.gif");
